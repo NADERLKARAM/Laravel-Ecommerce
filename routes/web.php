@@ -1,6 +1,15 @@
 <?php
 
+
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FirstController;
+use App\Http\Controllers\ReviewController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +22,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+//.................................
+Route::get('/', [CategoryController::class, 'MainPage']);
+Route::get('/category', [CategoryController::class, 'GetAllCategorywithProducts']);
+
+
+
+
+
+
+//...................................
+Route::get('/review',[ReviewController::class,'reviews']);
+Route::post('/storeReview',[ReviewController::class,'storeReview']);
+
+
+
+
+//........................
+Route::prefix('/products')->group(function () {
+    Route::get('/productTable', [ProductController::class, 'ProductsTable'])->name('myTable');
+    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/delete/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 });
 
-Route::get('/category', function () {
-    return view('category');
-});
 
-Route::get('/product', function () {
-    return view('product');
-});
+
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
+Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add')->middleware('auth');
+Route::delete('/cart/remove/{product}', [CartController::class, "removeFromCart"])->name('cart.remove');
