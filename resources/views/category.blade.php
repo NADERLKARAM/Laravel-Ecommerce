@@ -31,7 +31,7 @@
             <div class="col-lg-4 col-md-6 text-center _{{$item -> category_id}}">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="single-product.html"><img style="max-height: 250px;min-height:250px"  src="{{ asset('storage/' . $item->image) }}" alt=""></a>
+                        <a href="/products/{{ $item->id }}"><img style="max-height: 250px;min-height:250px"  src="{{ asset('storage/' . $item->image) }}" alt=""></a>
                     </div>
                     <h3>{{$item -> name}}</h3>
                     <p class="product-price"> {{$item-> price}}$ </p>

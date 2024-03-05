@@ -53,7 +53,7 @@ Route::prefix('/products')->group(function () {
     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('/', [ProductController::class, 'store'])->name('products.store');
     Route::get('/', [ProductController::class, 'index'])->name('products.index');
-    Route::get('/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('/{product}', [ProductController::class, 'showProduct'])->name('products.show');
     Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/delete/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
@@ -62,20 +62,13 @@ Route::prefix('/products')->group(function () {
 
 
 
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
-Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add')->middleware('auth');
-Route::delete('/cart/remove/{product}', [CartController::class, "removeFromCart"])->name('cart.remove');
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/AddProductImages/{productid}', [AddProductImagesController::class, 'AddProductImages']);
 Route::post('/storeProductImage',[AddProductImagesController::class,'storeProductImage']);
 Route::get('/removeproductphoto/{imageid?}', [AddProductImagesController::class, 'Removeproductphoto']);
+
+
+
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
+Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add')->middleware('auth');
+Route::delete('/cart/remove/{product}', [CartController::class, "removeFromCart"])->name('cart.remove');
