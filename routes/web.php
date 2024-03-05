@@ -8,6 +8,7 @@ use App\Http\Controllers\ReviewController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AddProductImagesController;
 
 
 
@@ -64,3 +65,17 @@ Route::prefix('/products')->group(function () {
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index')->middleware('auth');
 Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add')->middleware('auth');
 Route::delete('/cart/remove/{product}', [CartController::class, "removeFromCart"])->name('cart.remove');
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/AddProductImages/{productid}', [AddProductImagesController::class, 'AddProductImages']);
+Route::post('/storeProductImage',[AddProductImagesController::class,'storeProductImage']);
+Route::get('/removeproductphoto/{imageid?}', [AddProductImagesController::class, 'Removeproductphoto']);

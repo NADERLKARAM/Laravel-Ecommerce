@@ -55,7 +55,10 @@
                     </button>
                 </form>
 
-
+                <a href="/AddProductImages/{{ $item->id }}" class="btn btn-dark">
+                    <i class="fas fa-images"></i>
+                    اضافة صور المنتج
+                </a>
             </td>
         </tr>
         @endforeach

@@ -21,7 +21,7 @@
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="/products"><img
+                        <a href="/single-product/{{ $item->id }}"><img
                                 style="max-height: 250px;min-height:250px" src="{{ asset('storage/' . $item->image) }}"
                                 alt=""></a>
                     </div>
