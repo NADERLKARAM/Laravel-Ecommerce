@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
-use App\Models\ProductImage;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -13,21 +12,27 @@ class ProductController extends Controller
 {
 
 
-
-    public  function showProduct($productid)
+    public function showProduct($productid)
     {
-        $product = Product::with('Category', 'images')->find($productid);
+        // Find the product by ID
+        $product = Product::with('category', 'images')->find($productid);
 
+        // Check if the product exists
+        if (!$product) {
+            abort(404); // or handle the not found scenario in a way that makes sense for your application
+        }
 
-
-        $relatedProducts =  Product::where('category_id', $product->category_id)->where('id', '!=', $productid)
+        // Retrieve related products from the same category
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $productid)
             ->inRandomOrder()
             ->limit(3)
             ->get();
 
-
         return view('Products.showProduct', ['product' => $product, 'relatedProducts' => $relatedProducts]);
     }
+
+
 
 
 
