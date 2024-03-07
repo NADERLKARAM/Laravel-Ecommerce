@@ -59,6 +59,27 @@ public function storeOrder(StoreOrderRequest $request)
 }
 
 
+public function getAllOrders()
+{
+    $orders = Order::with('OrderDetails')->get();
+
+    return view('orders.getOrder', ['orders'=> $orders]);
+}
+
+
+
+
+
+public function getAllOrdersWithUserAuth()
+{
+
+    $user_id = auth()->user() -> id;
+
+   $result = Order::with('orderdetails')->where('user_id',$user_id)->get();
+
+    return view('orders.getOrder',['orders' =>  $result ]);
+}
+
 
 
 }

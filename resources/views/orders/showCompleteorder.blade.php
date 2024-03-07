@@ -107,7 +107,7 @@
                                                                     <td class="product-image"><img src="{{ asset('storage/' . $item->product->image) }}"
                                                                             alt=""></td>
                                                                     <td class="product-name">
-                                                                        <a href="/single-product/{{$item-> product ->id}}">
+                                                                        <a href="/products/{{$item-> product ->id}}">
                                                                         {{ $item->product->name }}
                                                                         </a>
                                                                     </td>
@@ -152,7 +152,7 @@
                                                         </tbody>
                                                     </table>
                                                     <div class="cart-buttons">
-                                                             
+
                                                      </div>
                                                 </div>
 

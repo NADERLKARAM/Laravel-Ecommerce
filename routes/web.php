@@ -90,3 +90,5 @@ Route::delete('/cart/remove/{product}', [CartController::class, "removeFromCart"
 
 Route::get('/Completeorder', [OrderController::class, 'showCompleteorder'])->middleware('auth');
 Route::post('/StoreOrder', [OrderController::class, 'storeOrder'])->name('store.order')->middleware('auth');
+Route::get('/getAllOrders', [OrderController::class, 'getAllOrders']);
+Route::get('/getAllOrdersWithUserAuth', [OrderController::class, 'getAllOrdersWithUserAuth']);

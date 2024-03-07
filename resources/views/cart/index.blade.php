@@ -72,7 +72,10 @@
                     </table>
                     <div class="cart-buttons">
                         <a href="/Completeorder" class="boxed-btn black">Check Out</a>
+                        {{-- <a href="/getAllOrders" class="boxed-btn black">getAllOrders</a> --}}
+                        <a href="/getAllOrdersWithUserAuth" class="boxed-btn black">getAllOrders</a>
                     </div>
+
                 </div>
 
                 <div class="coupon-section">
