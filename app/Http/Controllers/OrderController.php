@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class OrderController extends Controller
 }
 
 
-public function StoreOrder(Request $request)
+public function storeOrder(StoreOrderRequest $request)
 {
     $user_id = auth()->user()->id;
 
@@ -55,7 +55,7 @@ public function StoreOrder(Request $request)
     // Clear the user's cart after creating order details
     Cart::where('user_id', $user_id)->delete();
 
-    return  back()->with('success', 'Order placed successfully!');
+    return redirect('/')->with('success', 'Order placed successfully!');
 }
 
 

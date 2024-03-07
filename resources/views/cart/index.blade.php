@@ -72,7 +72,6 @@
                     </table>
                     <div class="cart-buttons">
                         <a href="/Completeorder" class="boxed-btn black">Check Out</a>
-                        <a href="checkout.html" class="boxed-btn black">Check Out</a>
                     </div>
                 </div>
 

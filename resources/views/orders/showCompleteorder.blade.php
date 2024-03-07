@@ -25,13 +25,45 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
                           <div class="card-body">
                             <div class="billing-address-form">
-                                <form action="/StoreOrder" method="post" id="store-order" name="store-order">
-                                    @CSRF
-                                    <p><input type="text" required id="name" name="name" placeholder="Name"></p>
-                                    <p><input type="email" required  id="email" name="email" placeholder="Email"></p>
-                                    <p><input type="text" required  id="address" name="address" placeholder="Address"></p>
-                                    <p><input type="tel" required id="phone" name="phone" placeholder="Phone"></p>
-                                    <p><textarea name="note"  id="note" cols="30" rows="10" placeholder="Say Something"></textarea></p>
+              <form action="/StoreOrder" method="post" id="store-order" name="store-order">
+               @csrf <!-- Corrected to use lowercase csrf -->
+
+                    <p>
+                    <input type="text" required id="name" name="name" placeholder="Name">
+                    @error('name')
+                 <span class="text-danger">{{ $message }}</span>
+                 @enderror
+                     </p>
+
+                <p>
+                 <input type="email" required id="email" name="email" placeholder="Email">
+                @error('email')
+             <span class="text-danger">{{ $message }}</span>
+                @enderror
+               </p>
+
+               <p>
+                <input type="text" required id="address" name="address" placeholder="Address">
+                    @error('address')
+                  <span class="text-danger">{{ $message }}</span>
+                        @enderror
+             </p>
+
+                <p>
+               <input type="tel" required id="phone" name="phone" placeholder="Phone">
+              @error('phone')
+               <span class="text-danger">{{ $message }}</span>
+               @enderror
+          </p>
+
+            <p>
+               <textarea name="note" id="note" cols="30" rows="10" placeholder="Say Something"></textarea>
+                   @error('note')
+                 <span class="text-danger">{{ $message }}</span>
+                   @enderror
+                  </p>
+
+
                                 </form>
                             </div>
                           </div>
@@ -67,7 +99,7 @@
                                                         </thead>
                                                         <tbody>
 
-                                                            @foreach ($cartProducts as $item)
+                                                            @forelse ($cartProducts as $item)
                                                                 <tr class="table-body-row">
                                                                     <td class="product-remove">
                                                                         <a href="/deletecartitem/{{$item->id}}"><i class="far fa-window-close"></i></a>
@@ -85,7 +117,12 @@
                                                                         {{ $item->product->price * $item->quantity }} $</td>
 
                                                                 </tr>
-                                                            @endforeach
+
+                                                                @empty
+                <tr>
+                    <td colspan="6" class="text-center">Your cart is empty.</td>
+                </tr>
+                @endforelse
 
 
                                                         </tbody>
@@ -115,7 +152,7 @@
                                                         </tbody>
                                                     </table>
                                                     <div class="cart-buttons">
-
+                                                             
                                                      </div>
                                                 </div>
 
