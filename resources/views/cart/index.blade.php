@@ -72,8 +72,13 @@
                     </table>
                     <div class="cart-buttons">
                         <a href="/Completeorder" class="boxed-btn black">Check Out</a>
-                        {{-- <a href="/getAllOrders" class="boxed-btn black">getAllOrders</a> --}}
+                        @if(auth()->check() && auth()->user()->role == 'admin')
+                        <a href="/getAllOrders" class="boxed-btn black">getAllOrders</a>
+                        @endif
+
+                        @if(auth()->check() && auth()->user()->role == 'user')
                         <a href="/getAllOrdersWithUserAuth" class="boxed-btn black">getAllOrders</a>
+                        @endif
                     </div>
 
                 </div>

@@ -35,8 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //.................................
 Route::get('/', [CategoryController::class, 'MainPage']);
 Route::get('/category', [CategoryController::class, 'GetAllCategorywithProducts']);
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create')->middleware('admin');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store')->middleware('admin');
 
 
 
@@ -53,22 +53,22 @@ Route::post('/storeReview',[ReviewController::class,'storeReview']);
 
 //........................
 Route::prefix('/products')->group(function () {
-    Route::get('/productTable', [ProductController::class, 'ProductsTable'])->name('myTable');
-    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
-    Route::post('/', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/productTable', [ProductController::class, 'ProductsTable'])->name('myTable')->middleware('admin');
+    Route::get('/create', [ProductController::class, 'create'])->name('products.create')->middleware('admin');
+    Route::post('/', [ProductController::class, 'store'])->name('products.store')->middleware('admin');
     Route::get('/', [ProductController::class, 'index'])->name('products.index');
     Route::get('/{product}', [ProductController::class, 'showProduct'])->name('products.show');
-    Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::put('/{product}', [ProductController::class, 'update'])->name('products.update');
-    Route::delete('/delete/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware('admin');
+    Route::put('/{product}', [ProductController::class, 'update'])->name('products.update')->middleware('admin');
+    Route::delete('/delete/{product}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('admin');
 });
 
 
 
 //.................................................................
-Route::get('/AddProductImages/{productid}', [AddProductImagesController::class, 'AddProductImages']);
-Route::post('/storeProductImage',[AddProductImagesController::class,'storeProductImage']);
-Route::get('/removeproductphoto/{imageid?}', [AddProductImagesController::class, 'Removeproductphoto']);
+Route::get('/AddProductImages/{productid}', [AddProductImagesController::class, 'AddProductImages'])->middleware('admin');
+Route::post('/storeProductImage',[AddProductImagesController::class,'storeProductImage'])->middleware('admin');
+Route::get('/removeproductphoto/{imageid?}', [AddProductImagesController::class, 'Removeproductphoto'])->middleware('admin');
 
 
 

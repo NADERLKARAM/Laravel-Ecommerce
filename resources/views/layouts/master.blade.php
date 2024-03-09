@@ -71,12 +71,15 @@
                         <!-- menu start -->
                         <nav class="main-menu" dir="rtl">
                             <ul>
-                                <li class="current-list-item"><a href="/">HOME</a>
+                                <li class="current-list-item"><a href="/">الرئيسية</a>
                                 </li>
-                                <li><a href="/products/productTable">ProductsTable</a></li>
+                                <li><a href="/products">جميع المنتجات</a></li>
                                 <li><a href="/category">الأقسام</a></li>
+                                @if(auth()->check() && auth()->user()->role == 'admin')
+                                <li><a href="/products/productTable">جميع المنتجات</a></li>
                                 <li><a href="/products/create">اضافة منتج</a></li>
                                 <li><a href="/categories/create">اضافة قسم</a></li>
+                                @endif
                                 <li><a href="/review">اراء العملاء </a></li>
 
 
@@ -277,9 +280,9 @@
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">تواصل معنا</h2>
                         <ul>
-                            <li>34/8, مصر المنصورة</li>
-                            <li>codewithsaad@gmail.com</li>
-                            <li>00201069873029</li>
+                            <li> اسطانبول تركيا  </li>
+                            <li>naedrkamal4@gmail.com</li>
+                            <li>+905527090175</li>
                         </ul>
                     </div>
                 </div>
@@ -287,10 +290,10 @@
                     <div class="footer-box pages">
                         <h2 class="widget-title">الصفحات</h2>
                         <ul>
-                            <li><a href="/">{{__('string.home')}}</a></li>
+                            <li><a href="/">الرئيسية</a></li>
                             <li><a href="about.html">من نحن</a></li>
-                            <li><a href="services.html">المنتجات</a></li>
-                            <li><a href="news.html">الاقسام</a></li>
+                            <li><a href="/products">المنتجات</a></li>
+                            <li><a href="category">الاقسام</a></li>
                             <li><a href="contact.html">تواصل معنا</a></li>
                         </ul>
                     </div>
@@ -317,8 +320,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 ">
-                    <p>حقوق الملكية محفوظة لدى موقع &copy; 2023 - <a
-                            href="www.codewithsaad.com">www.codewithsaad.com</a> <br>
+                    <p>حقوق الملكية محفوظة لدى موقع &copy; 2023 - <a>
 
                     </p>
 

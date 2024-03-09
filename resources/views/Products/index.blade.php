@@ -41,7 +41,7 @@
                     </form>
 
 
-                    @if (Auth::check())
+                    @if(auth()->check() && auth()->user()->role == 'admin')
                     <form action="/products/delete/{{ $item->id }}" method="POST" style="display:inline;">
                         @method('DELETE')
                         @csrf
