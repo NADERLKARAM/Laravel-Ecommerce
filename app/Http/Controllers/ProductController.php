@@ -122,6 +122,17 @@ public  function ProductsTable()
     return view('Products.ProductsTable', ['products' => $products]);
 }
 
+public function getAllProductsWithCategoryID($categoryID)
+    {
+     // Fetch the category
+     $category = Category::findOrFail($categoryID);
+
+     // Fetch paginated products related to the specified category ID
+     $products = $category->products()->paginate(10); // Adjust the number based on your preferences
+
+     return view('products.index', compact('category', 'products'));
+    }
+
 
 
 

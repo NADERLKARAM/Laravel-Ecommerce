@@ -20,12 +20,12 @@
 
 
 
-           
+
                 @foreach ($categories as $item)
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
                         <div class="product-image">
-                            <a href="/products">
+                            <a href="{{ route('category.products', ['categoryID' => $item->id]) }}">
                                 <img style="max-height: :250px !important; min-height:250px !important"
                                  src="{{ asset('storage/' . $item->image) }}" alt=""></a>
                         </div>

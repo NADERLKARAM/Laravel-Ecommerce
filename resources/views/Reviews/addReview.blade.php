@@ -1,7 +1,6 @@
-@extends('layouts.master')
+@extends('Layouts.master')
 
 @section('content')
-
 
 
 
@@ -94,7 +93,7 @@
 
 
 
-
+{{-- 
 <div class="testimonail-section mt-80 mb-150">
     <div class="container">
         <div class="row">
@@ -125,7 +124,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 

@@ -9,7 +9,7 @@
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>Fruitkha - Slider Version</title>
+    <title>Code with Saad</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -55,7 +55,7 @@
     <!--PreLoader Ends-->
 
     <!-- header -->
-    <div class="top-header-area" id="sticker">
+    <div class="top-header-area" style="position : relative ; background: black" id="sticker">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 text-center">
@@ -71,13 +71,12 @@
                         <!-- menu start -->
                         <nav class="main-menu" dir="rtl">
                             <ul>
-                                <li class="current-list-item"><a href="/">HOME</a>
+                                <li class="current-list-item"><a href="/">الرئيسية</a>
                                 </li>
-                                <li><a href="/products/productTable">ProductsTable</a></li>
+                                <li><a href="/products">المنتجات</a></li>
                                 <li><a href="/category">الأقسام</a></li>
-                                <li><a href="/products/create">اضافة منتج</a></li>
-                                <li><a href="/categories/create">اضافة قسم</a></li>
-                                <li><a href="/review">اراء العملاء </a></li>
+                                <li><a href="/addproduct">اضافة منتج</a></li>
+                                <li><a href="/reviews">اراء العملاء </a></li>
 
 
 
@@ -117,6 +116,10 @@
 
 
 
+
+
+
+
                                 <li>
                                     <div class="header-icons">
                                         <a class="shopping-cart" href="/cart"><i
@@ -146,7 +149,7 @@
                     <div class="search-bar">
                         <div class="search-bar-tablecell">
                             <h3 style="letter-spacing: 0px;">البحث فى جميع المنتجات الخاصة بنا</h3>
-                            <form action="{{ route('products.index') }}" method="get">
+                            <form action="/search" method="post">
                                 @csrf
                                 <input type="text" name="searchkey" placeholder="ابحث عن المنتجات">
                                 <button type="submit">بحث <i class="fas fa-search"></i></button>
@@ -160,65 +163,7 @@
     <!-- end search area -->
 
     <!-- home page slider -->
-    <div class="homepage-slider">
-        <!-- single home slider -->
-        <div class="single-homepage-slider homepage-bg-1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
-                        <div class="hero-text">
-                            <div class="hero-text-tablecell">
-                                <p class="subtitle">متعة التسوق عبر فروعنا</p>
-                                <h1>احدث صيحات الموضة والتسوق</h1>
-                                <div class="hero-btns">
-                                    <a href="" class="boxed-btn">سجل معنا</a>
-                                    <a href="/contact" class="bordered-btn">تواصل معنا</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- single home slider -->
-        <div class="single-homepage-slider homepage-bg-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-center">
-                        <div class="hero-text">
-                            <div class="hero-text-tablecell">
-                                <p class="subtitle">توصيل باقل الاسعار حتى باب المنزل</p>
-                                <h1>100% مأكولات طبيعة</h1>
-                                <div class="hero-btns">
-                                    <a href="" class="boxed-btn">سجل معنا</a>
-                                    <a href="/contact" class="bordered-btn">تواصل معنا</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- single home slider -->
-        <div class="single-homepage-slider homepage-bg-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-right">
-                        <div class="hero-text">
-                            <div class="hero-text-tablecell">
-                                <p class="subtitle">عروض يومية على جميع المنتجات</p>
-                                <h1>خصومات لا نهائية علي جميع المنتجات</h1>
-                                <div class="hero-btns">
-                                    <a href="" class="boxed-btn">سجل معنا</a>
-                                    <a href="/contact" class="bordered-btn">تواصل معنا</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div style="height:150px"></div>
 
 
 
@@ -232,10 +177,8 @@
 
 
 
-{{--
-    {{ trans('string.welcome') }}
 
-    <form action="{{ route('changeLanguage') }}" method="post">
+    {{-- <form action="{{ route('changeLanguage') }}" method="post">
         @csrf
         <select name="locale" id="locale" onchange="this.form.submit()">
             <option value="en" {{ session('locale') == 'en' ? 'selected' : '' }}>English</option>
@@ -287,7 +230,7 @@
                     <div class="footer-box pages">
                         <h2 class="widget-title">الصفحات</h2>
                         <ul>
-                            <li><a href="/">{{__('string.home')}}</a></li>
+                            <li><a href="/">الرئيسية</a></li>
                             <li><a href="about.html">من نحن</a></li>
                             <li><a href="services.html">المنتجات</a></li>
                             <li><a href="news.html">الاقسام</a></li>

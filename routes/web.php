@@ -35,9 +35,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //.................................
 Route::get('/', [CategoryController::class, 'MainPage']);
 Route::get('/category', [CategoryController::class, 'GetAllCategorywithProducts']);
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 
 
 
+Route::get('/category/products/{categoryID}', [ProductController::class, 'getAllProductsWithCategoryID'])->name('category.products');
 
 
 
