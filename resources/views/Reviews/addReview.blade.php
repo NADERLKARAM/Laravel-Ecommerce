@@ -93,10 +93,9 @@
 
 
 
-{{-- 
 <div class="testimonail-section mt-80 mb-150">
-    <div class="container">
-        <div class="row">
+     <div class="container">
+      <div class="row">
             <div class="col-lg-10 offset-lg-1 text-center">
                 <div class="testimonial-sliders">
 
@@ -120,11 +119,11 @@
 
 
 
-                </div>
+                 </div>
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 
 
 

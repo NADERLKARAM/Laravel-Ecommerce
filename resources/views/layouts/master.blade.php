@@ -40,6 +40,10 @@
         .subtitle {
             letter-spacing: 0px !important;
         }
+        .active {
+    font-weight: bold;
+    /* Add more styling as needed */
+}
     </style>
 
 </head>
@@ -233,19 +237,6 @@
 
 
 
-
-
-{{--
-    {{ trans('string.welcome') }}
-
-    <form action="{{ route('changeLanguage') }}" method="post">
-        @csrf
-        <select name="locale" id="locale" onchange="this.form.submit()">
-            <option value="en" {{ session('locale') == 'en' ? 'selected' : '' }}>English</option>
-            <option value="ar" {{ session('locale') == 'ar' ? 'selected' : '' }}>عربي</option>
-            <!-- Add more language options as needed -->
-        </select>
-    </form> --}}
 
 
 
