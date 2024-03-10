@@ -46,7 +46,7 @@ Route::get('/category/products/{categoryID}', [ProductController::class, 'getAll
 
 //...................................
 Route::get('/review',[ReviewController::class,'reviews']);
-Route::post('/storeReview',[ReviewController::class,'storeReview']);
+Route::post('/storeReview',[ReviewController::class,'storeReview'])->middleware('auth');
 
 
 
