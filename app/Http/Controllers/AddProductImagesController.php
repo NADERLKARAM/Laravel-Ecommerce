@@ -37,7 +37,7 @@ class AddProductImagesController extends Controller
 
         if ($request->has('photo')) {
             $path = $request->photo->move(
-                'product_images',
+               public_path('product_images'),
                 Str::uuid()->toString() . '-' . $request->photo->getClientOriginalName()
             );
 
