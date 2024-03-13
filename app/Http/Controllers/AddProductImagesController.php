@@ -17,7 +17,7 @@ class AddProductImagesController extends Controller
 
         $productImages = ProductImage::where('product_id', $productid)->get();
 
-        return view('products.AddProductImage', ['product' => $product, 'productImages' => $productImages]);
+        return view('Products.AddProductImage', ['product' => $product, 'productImages' => $productImages]);
     }
 
 
