@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     Product::create($validatedData);
 
-    return redirect()->route('products.index')->with('success', 'Product created successfully');
+    return redirect()->route('Products.index')->with('success', 'Product created successfully');
 
 }
 
@@ -83,7 +83,7 @@ public function edit(Product $product)
 {
 
     $categories = Category::all();
-    return view('Products.editproduct', compact('product', 'categories'));
+    return view('Products.editproduct', compact('Product', 'categories'));
 }
 
 
@@ -103,7 +103,7 @@ public function update(UpdateProductRequest $request, Product $product)
 
     $product->update($validatedData);
 
-    return redirect()->route('products.index')->with('success', 'Product updated successfully');
+    return redirect()->route('Products.index')->with('success', 'Product updated successfully');
 }
 
 
@@ -112,7 +112,7 @@ public function destroy(Product $product)
 {
     $product->delete();
 
-    return redirect()->route('products.index')->with('success', 'Product deleted successfully');
+    return redirect()->route('Products.index')->with('success', 'Product deleted successfully');
 }
 
 
@@ -130,7 +130,7 @@ public function getAllProductsWithCategoryID($categoryID)
      // Fetch paginated products related to the specified category ID
      $products = $category->products()->paginate(10); // Adjust the number based on your preferences
 
-     return view('products.index', compact('category', 'products'));
+     return view('Products.index', compact('category', 'products'));
     }
 
 
