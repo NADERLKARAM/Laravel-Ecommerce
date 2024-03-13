@@ -83,7 +83,7 @@ public function edit(Product $product)
 {
 
     $categories = Category::all();
-    return view('Products.editproduct', compact('Product', 'categories'));
+    return view('Products.editproduct', compact('product', 'categories'));
 }
 
 
