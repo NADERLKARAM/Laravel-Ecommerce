@@ -77,13 +77,14 @@
                             <ul>
                                 <li class="current-list-item"><a href="/">الرئيسية</a>
                                 </li>
-                                <li><a href="/products">جميع المنتجات</a></li>
+                               
                                 <li><a href="/category">الأقسام</a></li>
                                 @if(auth()->check() && auth()->user()->role == 'admin')
                                 <li><a href="/products/productTable">جميع المنتجات</a></li>
                                 <li><a href="/products/create">اضافة منتج</a></li>
                                 <li><a href="/categories/create">اضافة قسم</a></li>
                                 @endif
+                                 <li><a href="/products">جميع المنتجات</a></li>
                                 <li><a href="/review">اراء العملاء </a></li>
 
 
