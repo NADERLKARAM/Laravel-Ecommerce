@@ -23,7 +23,7 @@
                         <div class="contact-form">
 
 
-                            <form method="post" enctype="multipart/form-data" action="/products"
+                            <form method="POST" enctype="multipart/form-data" action="/products"
                                 style="text-align: right" dir="rtl">
                                 @csrf()
                                 <p>
