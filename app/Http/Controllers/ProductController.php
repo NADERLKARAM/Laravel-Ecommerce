@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     Product::create($validatedData);
 
-    return  return redirect()->back();
+    return redirect()->back();
 
 }
 
@@ -103,7 +103,7 @@ public function update(UpdateProductRequest $request, Product $product)
 
     $product->update($validatedData);
 
-    return  return redirect()->back();
+     return redirect()->back();
 }
 
 
@@ -112,7 +112,7 @@ public function destroy(Product $product)
 {
     $product->delete();
 
-    return  return redirect()->back();
+   return redirect()->back();
 }
 
 
