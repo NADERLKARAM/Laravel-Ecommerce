@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     Product::create($validatedData);
 
-    return redirect()->route('products.index')->with('success', 'Product created successfully');
+    return redirect()->back();
 
 }
 
@@ -103,7 +103,7 @@ public function update(UpdateProductRequest $request, Product $product)
 
     $product->update($validatedData);
 
-    return redirect()->route('products.index')->with('success', 'Product updated successfully');
+     return redirect()->back();
 }
 
 
@@ -112,7 +112,7 @@ public function destroy(Product $product)
 {
     $product->delete();
 
-    return redirect()->route('products.index')->with('success', 'Product deleted successfully');
+   return redirect()->back();
 }
 
 
